@@ -1,0 +1,14 @@
+	void ShuffleNote ()
+	{
+		noteCode = UnityEngine.Random.Range(0, noteList.Count);
+		noteList[noteCode].SetActive(true);
+
+		if(noteCode == lastNum)
+		{
+			noteList[noteCode].SetActive(false);
+			noteCode = UnityEngine.Random.Range(0, noteList.Count);
+			noteList[noteCode].SetActive(true);
+		}
+
+		lastNum = noteCode;
+	}
