@@ -1,0 +1,6 @@
+if (Manager.points > PlayerPrefs.GetInt ("rPoints")) 
+		{
+			PlayerPrefs.SetInt ("rPoints", Manager.points);
+		}
+
+		recordTxt.text = "Recorde: " + PlayerPrefs.GetInt ("rPoints").ToString();
