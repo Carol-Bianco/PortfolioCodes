@@ -1,0 +1,41 @@
+if(!paused)
+		{
+			seconds -= Time.deltaTime;
+
+			if(seconds <= 0)
+			{
+				minutes -= 1;
+				seconds = 59;
+			}
+
+			if(rightAnswer)
+			{
+				points ++;
+				GetComponent<AudioSource>().PlayOneShot(rightSfx);
+				GetActivateNote();
+			}
+
+			if(minutes <= 0 && seconds <= 20)
+			{
+				timeText.color = Color.red;
+			}
+
+			if(minutes < 0 )
+			{
+				end ++;
+
+				if(end == 1)
+				{
+					AdManager.intAd = true;
+				}
+				else if(end == 2)
+				{
+					AdManager.topAd = true;
+					end = 0;
+				}
+
+				SceneManager.LoadScene("End");
+			}
+				
+		}
+	}
